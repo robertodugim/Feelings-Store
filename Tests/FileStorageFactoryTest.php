@@ -9,7 +9,7 @@ class FileStorageFactoryTest extends PHPUnit_Framework_TestCase{
 	protected $content;
 	
 	public function setUp(){
-		$this->filename = __DIR__ . "/../src/api/storage/cart/exemple.json";
+		$this->filename = "cart/exemple.json";
 		$this->storage = FileStorageFactory::create($this->filename);
 		$this->content = "{FILE}";
 	}

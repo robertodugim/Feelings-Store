@@ -10,7 +10,7 @@ class LocalFileStorage implements FileStorageInterface{
 	}
 	
 	public function SetFilename($filename){
-		$this->filename = $filename;
+		$this->filename = __DIR__ . "/" .  $filename;
 	}
 	
 	public function GetFilename($filename){
