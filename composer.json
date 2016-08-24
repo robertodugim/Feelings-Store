@@ -17,7 +17,8 @@
 	"license": "MIT",
 	"autoload": {
 		"psr-4": {
-		  "API\\File\\": "src/api/"
+		  "API\\File\\": "src/api/storage",
+		  "API\\Base\\": "src/api/base"
 		}
 	}
 }
