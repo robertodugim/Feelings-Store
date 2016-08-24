@@ -1,0 +1,18 @@
+{
+	"name": "feelings-store",
+	"description": "Feelings Store - Cart Assigment",
+	"require": {
+		"php": ">=5.6"
+	},
+	"require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    },
+	
+	"authors": [
+		{
+		  "name": "Roberto Dugim",
+		  "email": "roberto.dugim@gmail.com"
+		}
+	],
+	"license": "MIT"
+}
