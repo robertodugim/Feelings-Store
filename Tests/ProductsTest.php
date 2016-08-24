@@ -32,13 +32,12 @@ class ProductsTest extends PHPUnit_Framework_TestCase{
 		$this->assertArrayHasKey('description', $product);
 		$this->assertArrayHasKey('author', $product);
 		$this->assertArrayHasKey('value', $product);
-		$this->assertArrayHasKey('inStock', $product);
 		
 		$this->assertInternalType('string', $product['name']);
 		$this->assertInternalType('string', $product['description']);
 		$this->assertInternalType('string', $product['author']);
 		$this->assertInternalType('float', $product['value']);
-		$this->assertInternalType('int', $product['inStock']);
 	}
+	
 }
 ?>
