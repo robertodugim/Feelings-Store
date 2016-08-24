@@ -14,5 +14,10 @@
 		  "email": "roberto.dugim@gmail.com"
 		}
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+		  "API\\File\\": "src/api/"
+		}
+	}
 }
