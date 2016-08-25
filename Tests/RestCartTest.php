@@ -25,6 +25,34 @@ class RestCartTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	/** @test */
+	public function add_more_one_product_in_cart(){
+		$response = self::$client->get('cart/add_product',[
+			'query' => [
+                'product' => 'lovi',
+				'quantity' => 2
+            ]
+		]);
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
+	
+	/** @test */
+	public function change_product_quantity_in_cart(){
+		$response = self::$client->get('cart/change_product',[
+			'query' => [
+                'product' => 'love',
+				'quantity' => 4
+            ]
+		]);
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
+	
+	/** @test */
 	public function get_cart_details(){
 		$response = self::$client->get('cart/get_cart');
 		$this->assertEquals(200, $response->getStatusCode());
