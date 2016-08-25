@@ -67,19 +67,19 @@ class ManageAPI{
 						$this->response['data'] = $this->cart->getCartDetails();
 						break;
 					case 'add_product':
-						$this->response['data'] = $this->cart->addProduct($data['product'],$data['quantity']);
+						$this->response['data'] = $this->cart->addProduct($this->data['product'],$this->data['quantity']);
 						break;
 					case 'change_product':
-						$this->response['data'] = $this->cart->changeProduct($data['product'],$data['quantity']);
+						$this->response['data'] = $this->cart->changeProduct($this->data['product'],$this->data['quantity']);
 						break;
 					case 'remove_product':
-						$this->response['data'] = $this->cart->removeProduct($data['product']);
+						$this->response['data'] = $this->cart->removeProduct($this->data['product']);
 						break;
 					case 'add_shipping':
-						$this->response['data'] = $this->cart->addShipping($data['street'],$data['postalcode'],$data['city'],$data['state'],$data['country']);
+						$this->response['data'] = $this->cart->addShipping($this->data['street'],$this->data['postalcode'],$this->data['city'],$this->data['state'],$this->data['country']);
 						break;
 					case 'add_billing':
-						$this->response['data'] = $this->cart->addBilling($data['street'],$data['postalcode'],$data['city'],$data['state'],$data['country']);
+						$this->response['data'] = $this->cart->addBilling($this->data['street'],$this->data['postalcode'],$this->data['city'],$this->data['state'],$this->data['country']);
 						break;
 					case 'remove_shipping':
 						$this->response['data'] = $this->cart->removeShipping();

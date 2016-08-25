@@ -13,6 +13,7 @@ class Cart{
 	private $cartPath = "cart/";
 	
 	public function __construct(){
+		
 		$this->GetCartID();
 		$this->GetCart();
 	}
@@ -36,20 +37,25 @@ class Cart{
 	}
 	
 	private function NewCart(){
-		$this->cart = array(
-			'cart' => array(),
-			'shipping' => array(),
-			'billing' => array()
-		);
 		return hash('md5',$this->hash.session_id().rand(1,100000));
 	}
 	
 	private function GetCart(){
-		if(!is_array($this->cart)){
-			$Storage = FileStorageFactory::create($this->cartPath.$this->cartid);
+		$Storage = FileStorageFactory::create($this->cartPath.$this->cartid);
+		try
+		{
 			$this->cart = json_decode($Storage->getFile(),true);
 			$this->attachCartProducts();
 			$this->attachAddresses();
+		}
+		catch(\Exception $e)
+		{
+			$this->cart = array(
+				'cart' => array(),
+				'shipping' => array(),
+				'billing' => array()
+			);
+			$Storage->setFile(json_encode($this->cart));
 		}
 	}
 	

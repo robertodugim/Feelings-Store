@@ -16,8 +16,8 @@ class CartProduct{
 	}
 	
 	public function SetQuantity($quantity){
-		if(!is_int($quantity)){
-			throw new \Exception('The quantity must be a integer value!');
+		if($quantity <= 0){
+			throw new \Exception('The quantity must bigger than 0(zero)!');
 		}
 		$this->quantity = $quantity;
 	}
