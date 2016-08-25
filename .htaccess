@@ -18,4 +18,6 @@ DirectoryIndex src/index.html
 
 #fix rules ([0-9A-z_-]+)
 RewriteRule ^api$ api/api.php [QSA,L,NC]
+RewriteRule ^api\/([0-9A-z_-]+)$ api/api.php?module=$1 [QSA,L,NC]
+RewriteRule ^api\/([0-9A-z_-]+)\/([0-9A-z_-]+)$ api/api.php?module=$1&method=$2 [QSA,L,NC]
 
