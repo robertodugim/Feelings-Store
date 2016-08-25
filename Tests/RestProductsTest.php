@@ -3,11 +3,9 @@ use GuzzleHttp\Client;
 
 class RestProductsTest extends PHPUnit_Framework_TestCase{
 	
-	protected static $url;
 	protected static $client;
 	
 	public static function setUpBeforeClass(){
-		self::$url = "http://localhost/Feelings-Store/api";
 		self::$client = new \GuzzleHttp\Client(['cookies' => true,'base_uri' => 'http://localhost/Feelings-Store/api/']);
 		
 	}
