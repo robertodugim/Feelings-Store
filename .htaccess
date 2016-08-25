@@ -1,0 +1,21 @@
+RewriteEngine On
+
+	
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteBase /Feelings-Store/src
+
+RedirectMatch 403 (?i).*\.json$
+RedirectMatch 403 (?i).*\.xml$
+RedirectMatch 403 (?i)/+src/$
+RedirectMatch 403 (?i)/+vendor.*$
+RedirectMatch 403 (?i)/+Tests.*$
+RedirectMatch 403 (?i)/+src/+api/$
+RedirectMatch 403 (?i)/+src/+api/+base
+RedirectMatch 403 (?i)/+src/+api/+storage
+
+DirectoryIndex src/index.html
+
+#fix rules ([0-9A-z_-]+)
+RewriteRule ^api$ api/api.php [QSA,L,NC]
+
