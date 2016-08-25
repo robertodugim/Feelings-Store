@@ -53,6 +53,71 @@ class RestCartTest extends PHPUnit_Framework_TestCase{
 	}
 	
 	/** @test */
+	public function remove_product_in_cart(){
+		$response = self::$client->get('cart/remove_product',[
+			'query' => [
+                'product' => 'lovi'
+            ]
+		]);
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
+	
+	/** @test */
+	public function add_shipping_address_in_cart(){
+		$response = self::$client->get('cart/add_shipping',[
+			'query' => [
+                'street' => 'Rua Japuruchita, 175',
+				'postalcode' => '03388150',
+				'city' => 'Sao Paulo',
+				'state' => 'SP',
+				'country' => 'Brasil'
+            ]
+		]);
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
+	
+	/** @test */
+	public function add_billing_address_in_cart(){
+		$response = self::$client->get('cart/add_billing',[
+			'query' => [
+                'street' => 'Rua Japuruchita, 175',
+				'postalcode' => '03388150',
+				'city' => 'Sao Paulo',
+				'state' => 'SP',
+				'country' => 'Brasil'
+            ]
+		]);
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
+	
+	/** @test */
+	public function remove_shipping(){
+		$response = self::$client->get('cart/remove_shipping');
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
+	
+	/** @test */
+	public function remove_billing_address_in_cart(){
+		$response = self::$client->get('cart/remove_billing');
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
+	
+	/** @test */
 	public function get_cart_details(){
 		$response = self::$client->get('cart/get_cart');
 		$this->assertEquals(200, $response->getStatusCode());
