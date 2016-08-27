@@ -131,7 +131,6 @@ class RestCartTest extends PHPUnit_Framework_TestCase{
 		$response = self::$client->get('cart/get_total');
 		$this->assertEquals(200, $response->getStatusCode());
 		$responseBody = json_decode($response->getBody(),true);
-		print_r($responseBody);
 		$this->assertInternalType('array',$responseBody);
 		$this->assertEquals('success', $responseBody['result']);
 	}

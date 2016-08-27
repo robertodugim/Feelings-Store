@@ -40,7 +40,9 @@ class Cart{
 		return hash('md5',$this->hash.session_id().rand(1,100000));
 	}
 	
+	
 	private function GetCart(){
+		$this->CheckCartFilename();
 		$Storage = FileStorageFactory::create($this->cartPath.$this->cartid);
 		try
 		{
@@ -56,6 +58,12 @@ class Cart{
 				'billing' => array()
 			);
 			$Storage->setFile(json_encode($this->cart));
+		}
+	}
+	
+	private function CheckCartFilename(){
+		if(strpos($this->cartid,".") !== false){
+			throw new \Exception('Cart Filename is not valid!');
 		}
 	}
 	
