@@ -39,6 +39,24 @@ class ManageAPI{
 		}
 	}
 	
+	private function CheckProductQuantity($data){
+		if(!isset($data['product']) || !isset($data['quantity'])){
+			throw new \Exception('Fields Product and Quantity must be filled!');
+		}
+	}
+	
+	private function CheckProduct($data){
+		if(!isset($data['product'])){
+			throw new \Exception('Field Product must be filled!');
+		}
+	}
+	
+	private function CheckAddressFields($data){
+		if(!isset($data['street']) || !isset($data['postalcode']) || !isset($data['city']) || !isset($data['state']) || !isset($data['country'])){
+			throw new \Exception('Fields Street, Postalcode, City, State and Country must be filled!');
+		}
+	}
+	
 	private function Loader(){
 		
 		if(!array_key_exists('module',$this->data)){
@@ -57,6 +75,7 @@ class ManageAPI{
 						$this->response['data'] = $this->products->getArray();
 						break;
 					case 'get_product':
+						$this->CheckProduct($data);
 						$this->response['data'] = $this->products->search($this->data['product']);
 						break;
 					default:
@@ -73,18 +92,23 @@ class ManageAPI{
 						$this->response['data'] = $this->cart->getCartTotal();
 						break;
 					case 'add_product':
+						$this->CheckProductQuantity($data);
 						$this->response['data'] = $this->cart->addProduct($this->data['product'],$this->data['quantity']);
 						break;
 					case 'change_product':
+						$this->CheckProductQuantity($data);
 						$this->response['data'] = $this->cart->changeProduct($this->data['product'],$this->data['quantity']);
 						break;
 					case 'remove_product':
+						$this->CheckProduct($data);
 						$this->response['data'] = $this->cart->removeProduct($this->data['product']);
 						break;
 					case 'add_shipping':
+						$this->CheckAddressFields($data);
 						$this->response['data'] = $this->cart->addShipping($this->data['street'],$this->data['postalcode'],$this->data['city'],$this->data['state'],$this->data['country']);
 						break;
 					case 'add_billing':
+						$this->CheckAddressFields($data);
 						$this->response['data'] = $this->cart->addBilling($this->data['street'],$this->data['postalcode'],$this->data['city'],$this->data['state'],$this->data['country']);
 						break;
 					case 'remove_shipping':
