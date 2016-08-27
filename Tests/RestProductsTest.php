@@ -18,6 +18,18 @@ class RestProductsTest extends PHPUnit_Framework_TestCase{
 		$this->assertInternalType('array',$responseBody);
 		$this->assertEquals('success', $responseBody['result']);
 	}
+	/** @test */
+	public function get_product_detail(){
+		$response = self::$client->get('products/get_product',[
+			'query' => [
+                'product' => 'love'
+            ]
+		]);
+		$this->assertEquals(200, $response->getStatusCode());
+		$responseBody = json_decode($response->getBody(),true);
+		$this->assertInternalType('array',$responseBody);
+		$this->assertEquals('success', $responseBody['result']);
+	}
 	
 }
 ?>
