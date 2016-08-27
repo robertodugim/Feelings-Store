@@ -1,5 +1,9 @@
-var app = angular.module("ngRouteExample",["ngRoute","nav-section"]);
+var app = angular.module("feelling-app",["ngRoute","nav-section"]);
 
-app.controller("IndexController",function($scope){
-    $scope.samething="index";
+app.factory('API', function clientIdFactory() {
+    return new FeelingsApi();
 });
+
+app.controller("IndexController",[ "API",function($scope){
+    $scope.samething="index";
+}]);
