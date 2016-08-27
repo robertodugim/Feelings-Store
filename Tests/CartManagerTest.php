@@ -71,6 +71,11 @@ class CartManagerTest extends PHPUnit_Framework_TestCase{
 	public function return_products_in_cart(){
 		$this->assertInternalType('array', $this->cart->getCartDetails());
 	}
+	
+	/** @test */
+	public function get_total_of_products_in_the_cart(){
+		$this->assertInternalType('int', $this->cart->getCartTotal());
+	}
 }
 
 ?>

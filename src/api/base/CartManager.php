@@ -8,6 +8,11 @@ class CartManager extends Cart{
 		return $this->apply();
 	}
 	
+	public function getCartTotal(){
+		$cart = $this->apply();
+		return count($cart['cart']);
+	}
+	
 	public function addProduct($product,$quantity){
 		$this->attachCartProduct($product,$quantity);
 		return $this->apply();

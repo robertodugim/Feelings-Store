@@ -66,6 +66,9 @@ class ManageAPI{
 					case 'get_cart':
 						$this->response['data'] = $this->cart->getCartDetails();
 						break;
+					case 'get_total':
+						$this->response['data'] = $this->cart->getCartTotal();
+						break;
 					case 'add_product':
 						$this->response['data'] = $this->cart->addProduct($this->data['product'],$this->data['quantity']);
 						break;
