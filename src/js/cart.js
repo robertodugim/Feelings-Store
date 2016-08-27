@@ -3,7 +3,6 @@ app.controller("CartController",[ "$scope", "$timeout", "$location", "$routePara
     $scope.billing = {};
     $scope.shipping = {};
     $scope.cartDetail = function(data){
-        console.log(data);
         $timeout(function() {
             $scope.products = data.cart;
             if(!$.isArray(data.billing)){
@@ -49,6 +48,22 @@ app.controller("CartController",[ "$scope", "$timeout", "$location", "$routePara
         angular.copy($scope.shipping, $scope.billing);
     };
 
+    $scope.removeShipping = function(){
+        API.removeShipping(function(){
+            $timeout(function() {
+                $scope.shipping = {};
+            }, 0);
+        });
+    };
+
+    $scope.removeBilling = function(){
+        API.removeBilling(function(){
+            $timeout(function() {
+                $scope.billing = {};
+            }, 0);
+        });
+    };
+    
     API.getCart($scope.cartDetail);
 }]);
 

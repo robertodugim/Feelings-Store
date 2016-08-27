@@ -74,6 +74,14 @@
             self.SaveShipping = function(shipping,callback){
                 self.processRequest('cart/add_shipping',shipping,callback);
             };
+
+            self.removeBilling = function(callback){
+                self.processRequest('cart/remove_billing',{},callback);
+            };
+
+            self.removeShipping = function(callback){
+                self.processRequest('cart/remove_shipping',{},callback);
+            };
         };
     }
 })(jQuery,this);
