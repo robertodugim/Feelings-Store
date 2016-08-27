@@ -75,7 +75,7 @@ class ManageAPI{
 						$this->response['data'] = $this->products->getArray();
 						break;
 					case 'get_product':
-						$this->CheckProduct($data);
+						$this->CheckProduct($this->data);
 						$this->response['data'] = $this->products->search($this->data['product']);
 						break;
 					default:
@@ -92,23 +92,23 @@ class ManageAPI{
 						$this->response['data'] = $this->cart->getCartTotal();
 						break;
 					case 'add_product':
-						$this->CheckProductQuantity($data);
+						$this->CheckProductQuantity($this->data);
 						$this->response['data'] = $this->cart->addProduct($this->data['product'],$this->data['quantity']);
 						break;
 					case 'change_product':
-						$this->CheckProductQuantity($data);
+						$this->CheckProductQuantity($this->data);
 						$this->response['data'] = $this->cart->changeProduct($this->data['product'],$this->data['quantity']);
 						break;
 					case 'remove_product':
-						$this->CheckProduct($data);
+						$this->CheckProduct($this->data);
 						$this->response['data'] = $this->cart->removeProduct($this->data['product']);
 						break;
 					case 'add_shipping':
-						$this->CheckAddressFields($data);
+						$this->CheckAddressFields($this->data);
 						$this->response['data'] = $this->cart->addShipping($this->data['street'],$this->data['postalcode'],$this->data['city'],$this->data['state'],$this->data['country']);
 						break;
 					case 'add_billing':
-						$this->CheckAddressFields($data);
+						$this->CheckAddressFields($this->data);
 						$this->response['data'] = $this->cart->addBilling($this->data['street'],$this->data['postalcode'],$this->data['city'],$this->data['state'],$this->data['country']);
 						break;
 					case 'remove_shipping':
