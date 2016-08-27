@@ -16,7 +16,7 @@ class CartProduct{
 	}
 	
 	public function SetQuantity($quantity){
-		if($quantity <= 0){
+		if(!isset($quantity) || intval($quantity) <= 0){
 			throw new \Exception('The quantity must bigger than 0(zero)!');
 		}
 		$this->quantity = intval($quantity);

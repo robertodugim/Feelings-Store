@@ -8,7 +8,18 @@ app.controller("CartController",[ "$scope", "$timeout", "$location", "$routePara
             $scope.shipping = data.shipping;
             $scope.total = data.all_products_amount;
             $scope.loadingCart = false;
+            $scope.GetCartCount();
         }, 0);
+    };
+
+
+    $scope.changeProductInCart = function(prodID,quantity){
+        $scope.loadingCart = true;
+        API.changeProductInCart(prodID,quantity,$scope.cartDetail);
+    };
+    
+    $scope.RemoveProduct = function(prodID){
+        API.removeProductInCart(prodID,$scope.cartDetail);
     };
     
     API.getCart($scope.cartDetail);

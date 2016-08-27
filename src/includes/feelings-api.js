@@ -51,6 +51,18 @@
             self.getCart = function(callback){
                 self.processRequest('cart/get_cart',{},callback);
             };
+
+            self.changeProductInCart = function(product,quantity,callback){
+                self.processRequest('cart/change_product',{
+                    'product':product,
+                    'quantity':quantity
+                },callback);
+            };
+            self.removeProductInCart = function(product,callback){
+                self.processRequest('cart/remove_product',{
+                    'product':product
+                },callback);
+            };
         };
     }
 })(jQuery,this);
