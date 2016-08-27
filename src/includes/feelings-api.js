@@ -15,24 +15,27 @@
                         if(resp.result == 'success'){
                             callback(resp.data);
                         }else{
-                            self.displayError(resp.error);
+                            self.displayError(resp.error,action);
                         }
                     },
                     error:function(xhr,txtError){
-                        self.displayError(txtError);
+                        self.displayError(txtError,action);
                     }
                 });
             };
-            self.displayError = function(error){
+            self.displayError = function(error,action){
                 if(typeof error !== 'undefined' && error !== null && error !== 'none'){
-                    alert(error);
+                    alert("API Error in the action "+action+': '+error);
                 }else{
-                    alert(self.defaultErrorMessage);
+                    alert("API Error in the action "+action+': '+self.defaultErrorMessage);
                 }
 
             };
             self.getCountInCart = function(callback){
                 self.processRequest('cart/get_total',{},callback);
+            };
+            self.getProductsList = function(callback){
+                self.processRequest('products/get_list',{},callback);
             };
         };
     }

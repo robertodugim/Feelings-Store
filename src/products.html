@@ -1,1 +1,11 @@
-controller: {{title}}<br />
+<div class="grid">
+    <p class="loading-img" ng-show="loadingProducts"><img src="src/images/loading.gif"></p>
+    <div ng-show="!loadingProducts" class="row">
+
+        <div class="col-xs-4" ng-repeat="(id, product) in products">
+            <a class="product-img-box" href="product/{{id}}">
+                <img class="img-responsive" title="{{product.name}}" src="src/images/products/{{id}}.jpg">
+            </a>
+        </div>
+    </div>
+</div>

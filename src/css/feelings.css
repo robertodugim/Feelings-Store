@@ -1,7 +1,16 @@
 body{
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif !important;
 }
-
+a{
+    color: #000;
+}
+.loading-img{
+    text-align: center;
+}
+.loading-img img{
+    max-width: 300px;
+}
+/*NavBar Style*/
 .navbar-bagde{
     position: absolute;
     z-index: 10;
@@ -42,3 +51,32 @@ body{
 .navbar-brand img{
     max-width: 103px;
 }
+
+.navbar-header{
+    max-width: 50% !important;
+    float: left;
+}
+
+.navbar-right{
+    float: right;
+
+}
+
+.brand-quote{
+    float: right;
+    padding-top:15px;
+    font-style: italic;
+    font-size: 17px;
+    font-weight: bold;
+    color: #000;
+}
+/*Products List Style*/
+.product-img-box img{
+    border-right: 1px dotted #C0DCE6;
+    border-bottom: 1px dotted #C0DCE6;
+    border-top: 1px dotted #C0DCE6;
+    border-radius:35px;
+    max-height: 70vh;
+}
+
+

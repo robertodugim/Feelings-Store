@@ -4,6 +4,14 @@ app.factory('API', function clientIdFactory() {
     return new FeelingsApi();
 });
 
-app.controller("IndexController",[ "API",function($scope){
-    $scope.samething="index";
-}]);
+app.config(function ($routeProvider,$locationProvider) {
+    $routeProvider.when("/product/:prodID", {
+        templateUrl: "src/product.html",
+        controller: "ProductController"
+    })
+        .otherwise({
+            templateUrl: "src/products.html",
+            controller: "ProductsController"
+        });
+    $locationProvider.html5Mode(true);
+});
