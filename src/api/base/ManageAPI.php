@@ -17,7 +17,7 @@ class ManageAPI{
 	}
 	private function SetReponse(){
 		$this->response = array(
-			"result" => "none",//will be error or sucess
+			"result" => "none",//will be error or success
 			"error" => "none",
 			"data" => null
 		);
