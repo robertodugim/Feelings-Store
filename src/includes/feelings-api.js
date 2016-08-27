@@ -37,6 +37,9 @@
             self.getProductsList = function(callback){
                 self.processRequest('products/get_list',{},callback);
             };
+            self.getProductsList = function(prodduct,callback){
+                self.processRequest('products/get_list',{},callback);
+            };
         };
     }
 })(jQuery,this);
