@@ -47,4 +47,68 @@
             </div>
         </div>
     </div>
+    <hr>
+    <div class="col-md-6 col-xs-12 address-box">
+        <h2>Shipping Address</h2>
+        <div class="form-group">
+            <label for="shipping_street">Street:</label>
+            <input type="text" ng-model="shipping.street" class="form-control" id="shipping_street" >
+        </div>
+        <div class="form-group">
+            <label for="shipping_postalcode">Postalcode:</label>
+            <input type="text" ng-model="shipping.postalcode" class="form-control" id="shipping_postalcode" >
+        </div>
+        <div class="form-group">
+            <label for="shipping_city">City:</label>
+            <input type="text" ng-model="shipping.city" class="form-control" id="shipping_city" >
+        </div>
+        <div class="form-group">
+            <label for="shipping_state">State:</label>
+            <input type="text" ng-model="shipping.state" class="form-control" id="shipping_state" >
+        </div>
+        <div class="form-group">
+            <label for="shipping_country">Country:</label>
+            <input type="text" ng-model="shipping.country" class="form-control" id="shipping_country" >
+        </div>
+        <div class="form-group">
+            <button ng-click="SaveShipping()" type="button" class="btn btn-primary">Save Shipping</button>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12 address-box">
+        <h2>Billing Address</h2>
+        <div class="form-group">
+            <label for="billing_street">Street:</label>
+            <input type="text" ng-model="billing.street" class="form-control" id="billing_street" >
+        </div>
+        <div class="form-group">
+            <label for="billing_postalcode">Postalcode:</label>
+            <input type="text" ng-model="billing.postalcode" class="form-control" id="billing_postalcode" >
+        </div>
+        <div class="form-group">
+            <label for="billing_city">City:</label>
+            <input type="text" ng-model="billing.city" class="form-control" id="billing_city" >
+        </div>
+        <div class="form-group">
+            <label for="billing_state">State:</label>
+            <input type="text" ng-model="billing.state" class="form-control" id="billing_state" >
+        </div>
+        <div class="form-group">
+            <label for="billing_country">Country:</label>
+            <input type="text" ng-model="billing.country" class="form-control" id="billing_country" >
+        </div>
+        <div class="form-group">
+            <button ng-click="SaveBilling()" type="button" class="btn btn-primary">Save Billing</button>
+            <button ng-click="CopyShipping()" type="button" class="btn btn-success">Copy Shipping to Billing Address</button>
+        </div>
+    </div>
 </div>
+
+<script>
+    $( function() {
+        $( "#ChangeAddresses" ).accordion({
+            collapsible: true,
+            active:false,
+            heightStyle: "content"
+        });
+    } );
+</script>

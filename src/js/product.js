@@ -16,7 +16,12 @@ app.controller("ProductController",[ "$scope", "$timeout", "$location", "$routeP
         }, 1);
     };
     $scope.addToCart = function(){
-        API.addProductToCart($scope.prodID,$scope.productQuantity,$scope.addedToCart);
+        if(typeof $scope.productQuantity === 'undefined'){
+            alert('The quantity must bigger than 0(zero)!');
+        }else{
+            API.addProductToCart($scope.prodID,$scope.productQuantity,$scope.addedToCart);
+        }
+
     };
     API.getProduct($routeParams.prodID,$scope.productDetail);
 }]);

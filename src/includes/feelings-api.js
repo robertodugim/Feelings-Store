@@ -54,16 +54,25 @@
             };
 
             self.changeProductInCart = function(product,quantity,callback){
-                
+
                 self.processRequest('cart/change_product',{
                     'product':product,
                     'quantity':quantity
                 },callback);
             };
+
             self.removeProductInCart = function(product,callback){
                 self.processRequest('cart/remove_product',{
                     'product':product
                 },callback);
+            };
+
+            self.SaveBilling = function(billing,callback){
+                self.processRequest('cart/add_billing',billing,callback);
+            };
+
+            self.SaveShipping = function(shipping,callback){
+                self.processRequest('cart/add_shipping',shipping,callback);
             };
         };
     }

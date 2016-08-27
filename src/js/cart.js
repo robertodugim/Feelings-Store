@@ -1,11 +1,17 @@
 app.controller("CartController",[ "$scope", "$timeout", "$location", "$routeParams", "API", function($scope, $timeout, $location, $routeParams, API){
     $scope.loadingCart = true;
+    $scope.billing = {};
+    $scope.shipping = {};
     $scope.cartDetail = function(data){
         console.log(data);
         $timeout(function() {
             $scope.products = data.cart;
-            $scope.billing = data.billing;
-            $scope.shipping = data.shipping;
+            if(!$.isArray(data.billing)){
+                $scope.billing = data.billing;
+            }
+            if(!$.isArray(data.shipping)){
+                $scope.shipping = data.shipping;
+            }
             $scope.total = data.all_products_amount;
             $scope.loadingCart = false;
             $scope.GetCartCount();
@@ -14,14 +20,35 @@ app.controller("CartController",[ "$scope", "$timeout", "$location", "$routePara
 
 
     $scope.changeProductInCart = function(prodID,quantity){
-        $scope.loadingCart = true;
-        API.changeProductInCart(prodID,quantity,$scope.cartDetail);
+        if(typeof quantity === 'undefined'){
+            alert('The quantity must bigger than 0(zero)!');
+        }else{
+            $scope.loadingCart = true;
+            API.changeProductInCart(prodID,quantity,$scope.cartDetail);
+        }
+
     };
     
     $scope.RemoveProduct = function(prodID){
         API.removeProductInCart(prodID,$scope.cartDetail);
     };
-    
+
+    $scope.AddressReturn = function(resp){
+        alert("Address Saved!");
+    };
+
+    $scope.SaveBilling = function(){
+        API.SaveBilling($scope.billing,$scope.AddressReturn);
+    };
+
+    $scope.SaveShipping = function(){
+        API.SaveShipping($scope.shipping,$scope.AddressReturn);
+    };
+
+    $scope.CopyShipping = function(){
+        angular.copy($scope.shipping, $scope.billing);
+    };
+
     API.getCart($scope.cartDetail);
 }]);
 
