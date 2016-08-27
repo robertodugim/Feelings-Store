@@ -21,6 +21,10 @@ hr{
     margin-top: 0;
     margin-bottom: 14px;
 }
+h1{
+    padding-left: 15px;
+    font-weight: bold;
+}
 /*NavBar Style*/
 .navbar-bagde{
     position: absolute;
@@ -111,6 +115,36 @@ hr{
     display: inline !important;
 }
 
+/*Cart Detail Style*/
+.cart-product-img-box img{
+    margin-bottom: 5px;
+    width: 80%;
+    min-width: 120px;
+}
+
+.change-qt-btn{
+    padding: 1px 6px;
+    font-size: 10px;
+}
+
+.cart-field{
+    height: auto;
+    padding: 3px 7px;
+    font-size: 12px;
+    max-width: 70px;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.total-box{
+    display: block;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    background-color: #f3f3f3;
+
+}
 
 
 

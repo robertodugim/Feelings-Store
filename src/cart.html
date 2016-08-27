@@ -1,0 +1,48 @@
+<div class="grid">
+    <p class="loading-img" ng-show="loadingCart"><img src="src/images/loading.gif"></p>
+    <div ng-show="!loadingCart" class="row">
+        <h1>Your Cart</h1>
+        <div class="col-xs-12">
+            <div class="col-xs-6 col-xs-push-6">
+                <span>Price</span>
+            </div>
+            <div class="col-xs-3 col-xs-push-3">
+                <span>Quantity</span>
+            </div>
+        </div>
+        <div class="col-xs-12" ng-repeat="(id, product) in products">
+            <hr>
+            <div class="col-xs-3">
+                 <a class="cart-product-img-box" href="product/{{id}}">
+                    <img title="{{product.name}}" src="src/images/products/{{id}}_thumb.jpg">
+                 </a>
+            </div>
+            <div class="col-xs-3">
+                <p class="title">{{product.name}}</p>
+                <blockquote class="hidden-xs hidden-sm">
+                    {{product.description}}
+                    <footer>
+                        <cite>
+                            {{product.author}}
+                        </cite>
+                    </footer>
+                </blockquote>
+            </div>
+            <div class="col-xs-3">
+                <p><span class="price">{{product.value | currency}}</span></p>
+            </div>
+            <div class="col-xs-3">
+                <div class="add-to-cart">
+                    <input type="number" min="1" max="100" ng-model="product.quantity" class="form-control quantity-field cart-field" id="quantity">
+                    <button type="button" class="btn btn-primary change-qt-btn">Change</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-sm-3 col-sm-push-9 col-xs-5 col-xs-push-7 total-box">
+                <p class="title">Subtotal ({{productsInCart}} items)</p>
+                <p><span class="price">{{total | currency}}</span></p>
+            </div>
+        </div>
+    </div>
+</div>

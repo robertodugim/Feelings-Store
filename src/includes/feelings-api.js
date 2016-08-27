@@ -48,6 +48,9 @@
                     'quantity':quantity
                 },callback);
             };
+            self.getCart = function(callback){
+                self.processRequest('cart/get_cart',{},callback);
+            };
         };
     }
 })(jQuery,this);

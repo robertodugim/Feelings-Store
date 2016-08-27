@@ -19,7 +19,7 @@ class CartProduct{
 		if($quantity <= 0){
 			throw new \Exception('The quantity must bigger than 0(zero)!');
 		}
-		$this->quantity = $quantity;
+		$this->quantity = intval($quantity);
 	}
 	
 	private function SetProduct($productKey){
