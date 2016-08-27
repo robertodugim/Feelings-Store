@@ -56,6 +56,9 @@ class ManageAPI{
 					case 'get_list':
 						$this->response['data'] = $this->products->getArray();
 						break;
+					case 'get_product':
+						$this->response['data'] = $this->products->search($this->data['product']);
+						break;
 					default:
 						throw new \Exception('Invalid Method!');
 				}
