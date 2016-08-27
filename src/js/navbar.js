@@ -14,7 +14,10 @@
                             scope.productsInCart = data;
                         }, 0);
                     };
-                    api.getCountInCart(scope.cartReturn);
+                    scope.GetCartCount = function(){
+                        api.getCountInCart(scope.cartReturn);
+                    };
+                    scope.GetCartCount();
                 },
                 controllerAs:"CtrlNavBar"
             };

@@ -25,9 +25,9 @@
             };
             self.displayError = function(error,action){
                 if(typeof error !== 'undefined' && error !== null && error !== 'none'){
-                    alert("API Error in the action "+action+': '+error);
+                    alert(error);
                 }else{
-                    alert("API Error in the action "+action+': '+self.defaultErrorMessage);
+                    alert(self.defaultErrorMessage);
                 }
 
             };
@@ -37,8 +37,16 @@
             self.getProductsList = function(callback){
                 self.processRequest('products/get_list',{},callback);
             };
-            self.getProductsList = function(prodduct,callback){
-                self.processRequest('products/get_list',{},callback);
+            self.getProduct = function(product,callback){
+                self.processRequest('products/get_product',{
+                    'product':product
+                },callback);
+            };
+            self.addProductToCart = function(product,quantity,callback){
+                self.processRequest('cart/add_product',{
+                    'product':product,
+                    'quantity':quantity
+                },callback);
             };
         };
     }

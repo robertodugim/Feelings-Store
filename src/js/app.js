@@ -9,6 +9,10 @@ app.config(function ($routeProvider,$locationProvider) {
         templateUrl: "src/product.html",
         controller: "ProductController"
     })
+        .when("/cart", {
+            templateUrl: "src/cart.html",
+            controller: "CartController"
+        })
         .otherwise({
             templateUrl: "src/products.html",
             controller: "ProductsController"
