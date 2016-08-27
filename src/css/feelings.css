@@ -1,0 +1,44 @@
+body{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.navbar-bagde{
+    position: absolute;
+    z-index: 10;
+    margin-top: 18px;
+    font-size: 9px;
+    margin-left: 6px;
+    background-color: #FF0000;
+    display:block
+}
+
+.cart-navbar {
+    padding: 10px 15px;
+    padding-top:15px;
+    padding-bottom:15px;
+    font-weight: bold;
+}
+
+.cart-navbar i{
+    font-size:20px;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    border-color: #d7eff9 !important;
+}
+.navbar-inverse{
+    background-color: #d7eff9 !important;
+    border-color: #d7eff9 !important;
+    border-radius: 0 !important;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color: #000;
+}
+
+.navbar-brand{
+    padding-top:10px;
+}
+
+.navbar-brand img{
+    max-width: 103px;
+}
