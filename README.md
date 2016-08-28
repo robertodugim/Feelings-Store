@@ -190,6 +190,58 @@ $response = self::$client->get('cart/add_product',[
   			"description":"Love is in the air!",
   			"author":"Tom Jones",
   			"value":1000,
+  			"total_amount":1000
+  		},
+  		"happiness":{
+  			"quantity":2,
+  			"name":"Happiness",
+  			"description":"Love is in the air!",
+  			"author":"TomJones",
+  			"value":2000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"billing":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"all_products_amount":5000
+  }
+}
+```
+
+####Change Product in the Cart
+```php
+$response = self::$client->get('cart/change_product',[
+			'query' => [
+        'product' => 'love',
+				'quantity' => 4
+            ]
+]);
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":4,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
   			"total_amount":4000
   		},
   		"happiness":{
@@ -216,6 +268,202 @@ $response = self::$client->get('cart/add_product',[
   		"country":"Brasil"
   	},
   	"all_products_amount":8000
+  }
+}
+```
+
+####Remove Product from the Cart
+```php
+$response = self::$client->get('cart/remove_product',[
+			'query' => [
+        'product' => 'happiness'
+            ]
+]);
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":4,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"billing":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"all_products_amount":4000
+  }
+}
+```
+
+####Add Shipping Address in the Cart
+```php
+$response = self::$client->get('cart/add_shipping',[
+			'query' => [
+                'street' => 'Rua Japuruchita, 175',
+				'postalcode' => '03388150',
+				'city' => 'Sao Paulo',
+				'state' => 'SP',
+				'country' => 'Brasil'
+            ]
+		]);
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":4,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"billing":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"all_products_amount":4000
+  }
+}
+```
+
+####Add Billing Address in the Cart
+```php
+$response = self::$client->get('cart/add_billing',[
+			'query' => [
+                'street' => 'Rua Japuruchita, 175',
+				'postalcode' => '03388150',
+				'city' => 'Sao Paulo',
+				'state' => 'SP',
+				'country' => 'Brasil'
+            ]
+		]);
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":4,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"billing":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"all_products_amount":4000
+  }
+}
+```
+####Remove Shipping Address in the Cart
+```php
+$response = self::$client->get('cart/remove_shipping');
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":4,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":[],
+  	"billing":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"all_products_amount":4000
+  }
+}
+```
+
+####Remove Billing Address in the Cart
+```php
+$response = self::$client->get('cart/remove_billing');
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":4,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":[],
+  	"billing":[],
+  	"all_products_amount":4000
   }
 }
 ```
