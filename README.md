@@ -65,7 +65,7 @@ self::$client = new \GuzzleHttp\Client(['cookies' => true,'base_uri' => 'http://
 ```php
 $response = self::$client->get('products/get_list');
 ```
-*Response*
+*JSON Response Exemple*
 ```php
 {
   "result":"success",
@@ -83,6 +83,139 @@ $response = self::$client->get('products/get_list');
       "author":"Tom Jones",
       "value":2000
     }
+  }
+}
+```
+
+####Get a Product Detail
+```php
+$response = self::$client->get('products/get_product',[
+			'query' => [
+          'product' => 'love'
+      ]
+]);
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+    "name":"Happiness",
+    "description":"Love is in the air!",
+    "author":"Tom Jones",
+    "value":2000
+  }
+}
+```
+
+####Get Total of Products in the Cart
+```php
+$response = self::$client->get('cart/get_total');
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":2
+}
+```
+
+####Get Cart Products and Addresses
+```php
+$response = self::$client->get('cart/get_total');
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":4,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
+  			"total_amount":4000
+  		},
+  		"happiness":{
+  			"quantity":2,
+  			"name":"Happiness",
+  			"description":"Love is in the air!",
+  			"author":"TomJones",
+  			"value":2000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"billing":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"all_products_amount":8000
+  }
+}
+```
+####Add Product in the Cart
+```php
+$response = self::$client->get('cart/add_product',[
+			'query' => [
+        'product' => 'love',
+				'quantity' => 1
+            ]
+]);
+```
+*JSON Response Exemple*
+```php
+{
+  "result":"success",
+  "error":"none",
+  "data":{
+  	"cart":{
+  		"love":{
+  			"quantity":1,
+  			"name":"Love",
+  			"description":"Love is in the air!",
+  			"author":"Tom Jones",
+  			"value":1000,
+  			"total_amount":4000
+  		},
+  		"happiness":{
+  			"quantity":2,
+  			"name":"Happiness",
+  			"description":"Love is in the air!",
+  			"author":"TomJones",
+  			"value":2000,
+  			"total_amount":4000
+  		}
+  	},
+  	"shipping":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"billing":{
+  		"street":"Rua Japuruchita, 175",
+  		"postalcode":"03388150",
+  		"city":"Sao Paulo",
+  		"state":"SP",
+  		"country":"Brasil"
+  	},
+  	"all_products_amount":8000
   }
 }
 ```
