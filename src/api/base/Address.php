@@ -3,6 +3,9 @@ namespace API\Base;
 /**
   * Define Address object
   *
+  * Used in Cart class
+  *
+  * @see Cart
   * @package API\Base
   */
 class Address{
