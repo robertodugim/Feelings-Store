@@ -23,12 +23,12 @@ class RestCartTest extends PHPUnit_Framework_TestCase{
 		$this->assertInternalType('array',$responseBody);
 		$this->assertEquals('success', $responseBody['result']);
 	}
-	
+	 
 	/** @test */
 	public function add_more_one_product_in_cart(){
 		$response = self::$client->get('cart/add_product',[
 			'query' => [
-                'product' => 'lovi',
+                'product' => 'happiness',
 				'quantity' => 2
             ]
 		]);
@@ -56,7 +56,7 @@ class RestCartTest extends PHPUnit_Framework_TestCase{
 	public function remove_product_in_cart(){
 		$response = self::$client->get('cart/remove_product',[
 			'query' => [
-                'product' => 'lovi'
+                'product' => 'happiness'
             ]
 		]);
 		$this->assertEquals(200, $response->getStatusCode());
