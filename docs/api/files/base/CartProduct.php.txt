@@ -1,0 +1,115 @@
+<?php
+namespace API\Base;
+
+use API\Base\Products;
+/**
+  * Define CartProduct object
+  *
+  * Used in Cart class
+  *
+  * @see Cart
+  *
+  * @package API\Base
+  */
+class CartProduct{
+	/**
+	  * @var int Should contain the quatity of the product
+	  */
+	private $quantity;
+	
+	/**
+	  * @var string Should contain the product Key
+	  */
+	private $productKey;
+	
+	/**
+	  * @var array Should contain the product array
+	  */
+	private $product;
+	
+	/**
+	  * @var Products Should contain Products class object
+	  */
+	private $products;
+	
+	/**
+	  * Class construct Set the product and quantity. Put the API\Base\Products class object into products property
+	  *
+	  *@param string $productKey the product Key(e.g:love)
+	  *@param int $quantity the product quantity(e.g:2)
+	  *
+	  *@uses API\Base\CartProduct::SetQuantity()
+	  *@uses API\Base\CartProduct::SetProduct()
+	  *@see Products
+	  *
+	  *@return void
+	  */
+	public function __construct($productKey,$quantity){
+		$this->products = new Products();
+		
+		$this->SetQuantity($quantity);
+		$this->SetProduct($productKey);
+	}
+	
+	/**
+	  * Set the quantity property
+	  *
+	  *@param int $quantity product quantity
+	  *
+	  *@throws \Exception if param qunatity is not set OR $quantity is minor or equal than 0(zero)
+	  *@return void
+	  */
+	public function SetQuantity($quantity){
+		if(!isset($quantity) || intval($quantity) <= 0){
+			throw new \Exception('The quantity must bigger than 0(zero)!');
+		}
+		$this->quantity = intval($quantity);
+	}
+	
+	/**
+	  * Set the productKey and product properties
+	  *
+	  * Search the product in the products list by the product key. Make the total_amount of the product(product amount multiplied by prodcut quantity)
+	  *
+	  *@param string $productKey product Key
+	  *
+	  *@uses API\Base\Products::search()
+	  *@see Products
+	  *@throws \Exception if product key not exists in the products list
+	  *@return void
+	  */
+	private function SetProduct($productKey){
+		$this->productKey = $productKey;
+		$this->product = $this->products->search($this->productKey);
+		$this->product['total_amount'] = $this->product['value'] * $this->quantity;
+	}
+	
+	/**
+	  * Get the product quantity
+	  *
+	  *@return int quantity content
+	  */
+	public function GetQuantity(){
+		return $this->quantity;
+	}
+	
+	/**
+	  * Get the product key
+	  *
+	  *@return string product key content
+	  */
+	public function GetProductKey(){
+		return $this->productKey;
+	}
+	
+	/**
+	  * Get the product key
+	  *
+	  *@return array product content
+	  */
+	public function GetProduct(){
+		return $this->product;
+	}
+}
+
+?>
