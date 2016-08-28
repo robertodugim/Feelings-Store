@@ -42,20 +42,20 @@ The cart files will be storage in `src/api/storage/cart/`
 
 ##API Requests
 
-All Rest request must be made by GET.
+All Rest requests have to be made by GET.
 
 The return always be a json in follow format:
 ```php
 {
 "result": "success",//can be error or success
 "error": "none",//error message or the string 'none'
-"data": null//a json object or a int. If error will be null
+"data": null//a json object or a int. If error it will be null
 }
 ```
 
 ###API Rest Methods Documentation
 
-For a better exemple I will use [Guzzle](http://docs.guzzlephp.org/en/latest/) library:
+I used [Guzzle](http://docs.guzzlephp.org/en/latest/) library as a better exemple:
 
 ```php
 self::$client = new \GuzzleHttp\Client(['cookies' => true,'base_uri' => 'http://localhost/Feelings-Store/api/']);
