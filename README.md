@@ -90,9 +90,9 @@ $response = self::$client->get('products/get_list');
 ####Get a Product Detail
 ```php
 $response = self::$client->get('products/get_product',[
-			'query' => [
-          'product' => 'love'
-      ]
+	'query' => [
+		'product' => 'love'
+	]
 ]);
 ```
 *JSON Response Exemple*
@@ -171,10 +171,10 @@ $response = self::$client->get('cart/get_total');
 ####Add Product in the Cart
 ```php
 $response = self::$client->get('cart/add_product',[
-			'query' => [
-        'product' => 'love',
-				'quantity' => 1
-            ]
+	'query' => [
+		'product' => 'love',
+		'quantity' => 1
+	]
 ]);
 ```
 *JSON Response Exemple*
@@ -223,10 +223,10 @@ $response = self::$client->get('cart/add_product',[
 ####Change Product in the Cart
 ```php
 $response = self::$client->get('cart/change_product',[
-			'query' => [
-        'product' => 'love',
-				'quantity' => 4
-            ]
+	'query' => [
+		'product' => 'love',
+		'quantity' => 4
+	]
 ]);
 ```
 *JSON Response Exemple*
@@ -275,9 +275,9 @@ $response = self::$client->get('cart/change_product',[
 ####Remove Product from the Cart
 ```php
 $response = self::$client->get('cart/remove_product',[
-			'query' => [
-        'product' => 'happiness'
-            ]
+	'query' => [
+		'product' => 'happiness'
+	]
 ]);
 ```
 *JSON Response Exemple*
@@ -318,14 +318,14 @@ $response = self::$client->get('cart/remove_product',[
 ####Add Shipping Address in the Cart
 ```php
 $response = self::$client->get('cart/add_shipping',[
-			'query' => [
-                'street' => 'Rua Japuruchita, 175',
-				'postalcode' => '03388150',
-				'city' => 'Sao Paulo',
-				'state' => 'SP',
-				'country' => 'Brasil'
-            ]
-		]);
+	'query' => [
+		'street' => 'Rua Japuruchita, 175',
+		'postalcode' => '03388150',
+		'city' => 'Sao Paulo',
+		'state' => 'SP',
+		'country' => 'Brasil'
+	]
+]);
 ```
 *JSON Response Exemple*
 ```php
@@ -365,14 +365,14 @@ $response = self::$client->get('cart/add_shipping',[
 ####Add Billing Address in the Cart
 ```php
 $response = self::$client->get('cart/add_billing',[
-			'query' => [
-                'street' => 'Rua Japuruchita, 175',
-				'postalcode' => '03388150',
-				'city' => 'Sao Paulo',
-				'state' => 'SP',
-				'country' => 'Brasil'
-            ]
-		]);
+	'query' => [
+		'street' => 'Rua Japuruchita, 175',
+		'postalcode' => '03388150',
+		'city' => 'Sao Paulo',
+		'state' => 'SP',
+		'country' => 'Brasil'
+	]
+]);
 ```
 *JSON Response Exemple*
 ```php
